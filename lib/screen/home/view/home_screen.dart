@@ -96,81 +96,76 @@ class _HomeScreenState extends State<HomeScreen> {
                                   color: Colors.red,
                                 )),
                             IconButton(
-                                onPressed: () {
-                                  dtxtid = TextEditingController(
-                                      text: "${homeProvider!.l1[index].id}");
-                                  dtxtname = TextEditingController(
-                                      text: "${homeProvider!.l1[index].name}");
-                                  dtxtstd = TextEditingController(
-                                      text: "${homeProvider!.l1[index].std}");
-                                  showDialog(
-                                    context: context,
-                                    builder: (context) => AlertDialog(
-                                      content: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          TextField(
-                                            controller: dtxtid,
-                                            decoration: InputDecoration(
-                                              focusedBorder:
-                                                  OutlineInputBorder(),
-                                              enabledBorder:
-                                                  OutlineInputBorder(),
-                                            ),
+                              onPressed: () {
+                                dtxtid = TextEditingController(
+                                    text: "${homeProvider!.l1[index].id}");
+                                dtxtname = TextEditingController(
+                                    text: "${homeProvider!.l1[index].name}");
+                                dtxtstd = TextEditingController(
+                                    text: "${homeProvider!.l1[index].std}");
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        TextField(
+                                          controller: dtxtid,
+                                          decoration: InputDecoration(
+                                            focusedBorder: OutlineInputBorder(),
+                                            enabledBorder: OutlineInputBorder(),
                                           ),
-                                          SizedBox(
-                                            height: 5,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        TextField(
+                                          controller: dtxtname,
+                                          decoration: InputDecoration(
+                                            focusedBorder: OutlineInputBorder(),
+                                            enabledBorder: OutlineInputBorder(),
                                           ),
-                                          TextField(
-                                            controller: dtxtname,
-                                            decoration: InputDecoration(
-                                              focusedBorder:
-                                                  OutlineInputBorder(),
-                                              enabledBorder:
-                                                  OutlineInputBorder(),
-                                            ),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        TextField(
+                                          controller: dtxtstd,
+                                          decoration: InputDecoration(
+                                            focusedBorder: OutlineInputBorder(),
+                                            enabledBorder: OutlineInputBorder(),
                                           ),
-                                          SizedBox(
-                                            height: 5,
-                                          ),
-                                          TextField(
-                                            controller: dtxtstd,
-                                            decoration: InputDecoration(
-                                              focusedBorder:
-                                                  OutlineInputBorder(),
-                                              enabledBorder:
-                                                  OutlineInputBorder(),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      actions: [
-                                        ElevatedButton(
-                                          onPressed: () {
-                                            stddata s1 = stddata(
-                                                std: dtxtstd.text,
-                                                name: dtxtname.text,
-                                                id: dtxtid.text);
-                                            homeProvider!.update(index, s1);
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text("Done"),
                                         ),
                                       ],
                                     ),
-                                  );
-                                },
-                                icon: Icon(
-                                  Icons.edit,
-                                  color: Colors.black,
-                                ))
+                                    actions: [
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          stddata s1 = stddata(
+                                              std: dtxtstd.text,
+                                              name: dtxtname.text,
+                                              id: dtxtid.text);
+                                          homeProvider!.update(index, s1);
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("Done"),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              icon: Icon(
+                                Icons.edit,
+                                color: Colors.black,
+                              ),
+                            ),
                           ],
                         ),
                       );
                     },
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
