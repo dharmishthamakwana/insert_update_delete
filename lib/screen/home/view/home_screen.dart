@@ -28,20 +28,22 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey,
-        appBar: AppBar(backgroundColor: Colors.grey.shade900,title: Text("Student Data"), centerTitle: true),
+        appBar: AppBar(
+            backgroundColor: Colors.grey.shade900,
+            title: Text("Student Data"),
+            centerTitle: true),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               TextField(
                 controller: txtid,
-
-                  decoration: InputDecoration(
-                    hintText: "Enter Id",
-                    focusedBorder: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(),
-                  ),
+                decoration: InputDecoration(
+                  hintText: "Enter Id",
+                  focusedBorder: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(),
                 ),
+              ),
               SizedBox(height: 10),
               TextField(
                 controller: txtname,
@@ -52,30 +54,27 @@ class _HomeScreenState extends State<HomeScreen> {
                     hintText: "Enter Name"),
               ),
               SizedBox(height: 10),
-
               TextField(
                 controller: txtstd,
                 decoration: InputDecoration(
                   hintText: "Enter STD",
-                    focusedBorder: OutlineInputBorder(),
-                    enabledBorder: OutlineInputBorder(),
-                  ),
+                  focusedBorder: OutlineInputBorder(),
+                  enabledBorder: OutlineInputBorder(),
                 ),
+              ),
               SizedBox(height: 10),
               ElevatedButton(
-
-                  onPressed: () {
-                    stddata s1 = stddata(
-                        id: txtid.text, name: txtname.text, std: txtstd.text);
-                    homeProvider!.add(s1);
-                    txtstd.clear();
-                    txtname.clear();
-                    txtid.clear();
-
-                  },
-                  child: Text("Add"),),
+                onPressed: () {
+                  stddata s1 = stddata(
+                      id: txtid.text, name: txtname.text, std: txtstd.text);
+                  homeProvider!.add(s1);
+                  txtstd.clear();
+                  txtname.clear();
+                  txtid.clear();
+                },
+                child: Text("Add"),
+              ),
               Expanded(
-
                 child: Consumer<HomeProvider>(
                   builder: (context, value, child) => ListView.builder(
                     itemCount: homeProvider!.l1.length,
@@ -113,8 +112,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                           TextField(
                                             controller: dtxtid,
                                             decoration: InputDecoration(
-                                              focusedBorder: OutlineInputBorder(),
-                                              enabledBorder: OutlineInputBorder(),
+                                              focusedBorder:
+                                                  OutlineInputBorder(),
+                                              enabledBorder:
+                                                  OutlineInputBorder(),
                                             ),
                                           ),
                                           SizedBox(
@@ -123,8 +124,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                           TextField(
                                             controller: dtxtname,
                                             decoration: InputDecoration(
-                                              focusedBorder: OutlineInputBorder(),
-                                              enabledBorder: OutlineInputBorder(),
+                                              focusedBorder:
+                                                  OutlineInputBorder(),
+                                              enabledBorder:
+                                                  OutlineInputBorder(),
                                             ),
                                           ),
                                           SizedBox(
@@ -133,24 +136,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                           TextField(
                                             controller: dtxtstd,
                                             decoration: InputDecoration(
-                                              focusedBorder: OutlineInputBorder(),
-                                              enabledBorder: OutlineInputBorder(),
+                                              focusedBorder:
+                                                  OutlineInputBorder(),
+                                              enabledBorder:
+                                                  OutlineInputBorder(),
                                             ),
                                           ),
                                         ],
                                       ),
                                       actions: [
-                                       
                                         ElevatedButton(
-                                            onPressed: () {
-                                              stddata s1 = stddata(
-                                                  std: dtxtstd.text,
-                                                  name: dtxtname.text,
-                                                  id: dtxtid.text);
-                                              homeProvider!.update(index, s1);
-                                              Navigator.pop(context);
-                                            },
-                                            child: Text("Done"))
+                                          onPressed: () {
+                                            stddata s1 = stddata(
+                                                std: dtxtstd.text,
+                                                name: dtxtname.text,
+                                                id: dtxtid.text);
+                                            homeProvider!.update(index, s1);
+                                            Navigator.pop(context);
+                                          },
+                                          child: Text("Done"),
+                                        ),
                                       ],
                                     ),
                                   );
